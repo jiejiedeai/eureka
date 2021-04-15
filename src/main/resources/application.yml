@@ -1,0 +1,22 @@
+server:
+  port: 8761
+  address: 127.0.0.1
+eureka:
+  instance:
+    hostname: ${spring.application.name} #服务主机名
+    instance-id: ${spring.application.name}:${server.port}
+    appname: ${spring.application.name}
+    ip-address: 127.0.0.1
+  client:
+    register-with-eureka: false #是否将服务注册到eureka 因为是eureka所以不需要讲自己注册到服务中心
+    fetch-registry: false #是否从eureka服务器上获取服务地址
+    service-url:
+      defaultZone: http://${server.address}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #关闭自我保护模式
+    response-cache-update-interval-ms: 3000
+    response-cache-auto-expiration-in-seconds: 180
+    eviction-interval-timer-in-ms: 60000 #清理服失效服务讲个时间
+spring:
+  application:
+    name: eureaka
