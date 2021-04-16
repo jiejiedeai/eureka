@@ -19,4 +19,4 @@ eureka:
     eviction-interval-timer-in-ms: 60000 #清理服失效服务讲个时间
 spring:
   application:
-    name: eureaka
+    name: eureka
